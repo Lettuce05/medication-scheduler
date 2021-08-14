@@ -4,23 +4,31 @@ import { StyleSheet, Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import colors from './assets/colors/colors';
-import Add from './assets/images/Add';
-import Inhaler from './assets/images/Inhaler';
+import MedicationDetail from './components/MedicationDetail';
+
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
     'Inter-Black': require('./assets/fonts/Inter-Black.ttf'),
   });
 
+  //TODO: Put Tab navigator as a screen in stack navigator
+  //TODO: Tab navigator will contain Medication, Schedule, and Profile Tabs
+  
   if (!fontsLoaded) {
     return <AppLoading />;
   } else {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontFamily: 'Inter-Black', fontSize: 40 }}>Inter Black</Text>
-        <Text style={{ fontSize: 40 }}>Platform Default</Text>
-        <Inhaler height={32} width={32} />
-      </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="MedicationDetail" component={MedicationDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
     );
   }
 }
