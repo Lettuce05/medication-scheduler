@@ -14,6 +14,7 @@ function Add(props) {
       <Path
         d="M14 7a1 1 0 01-1 1H8v5a1 1 0 11-2 0V8H1a1 1 0 010-2h5V1a1 1 0 012 0v5h5a1 1 0 011 1z"
         fill="#231F20"
+        {...props}
       />
     </Svg>
   )
