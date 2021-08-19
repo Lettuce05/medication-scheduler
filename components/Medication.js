@@ -15,6 +15,12 @@ const Medication = () => {
                     </TouchableOpacity>
                 </View>
             </View>
+
+            <View style={styles.medicationListWrapper}>
+                <View style={styles.medicationList}>
+
+                </View>
+            </View>
         </View>
     )
 }
@@ -45,6 +51,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10
     },
+    medicationListWrapper: {
+        backgroundColor: colors.light_900,
+        flex: 1,
+        marginTop: 20,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30
+    }
 })
 
 export default Medication
